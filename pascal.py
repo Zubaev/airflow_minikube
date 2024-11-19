@@ -27,6 +27,6 @@ dag = DAG('pascal', default_args=default_args, schedule_interval='@daily')
 
 python_task = PythonOperator(
     task_id='python_task',
-    python_callable=my_function,
+    python_callable=pascal_triangle,
     dag=dag,
 )
