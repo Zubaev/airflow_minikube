@@ -19,7 +19,7 @@ default_args = {
     'start_date': datetime(2024, 11, 18),
 }
 
-dag = DAG('pascal', default_args=default_args, schedule_interval='@daily')
+dag = DAG('pascal', default_args=default_args, schedule_interval='44 11 0 * * *')
 
 python_task = PythonOperator(
     task_id='python_task',
