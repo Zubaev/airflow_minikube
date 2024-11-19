@@ -16,9 +16,7 @@ def pascal_treug():
 default_args = {
     'owner': 'airflow',
     'depends_on_past': False,
-    'start_date': datetime(2023, 7, 19),
-    'email_on_failure': False,
-    'email_on_retry': False,
+    'start_date': datetime(2024, 11, 19),
 }
 
 dag = DAG('pascal', default_args=default_args, schedule_interval='@daily')
