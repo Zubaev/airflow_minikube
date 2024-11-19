@@ -4,15 +4,14 @@ from datetime import datetime
 
 
 
-def pascal_triangle(n):
-    matrix = []
-    for x in range(n):
-        rows = []
-        for y in range(x + 1):
-            result = comb(x, y)
-            rows.append(result)
-        matrix.append(rows)
-    return matrix
+def pascal_treug():
+    n = 10
+    for i in range(n):
+        coef = 1
+        for j in range(0, i + 1):
+            print(coef, end=' ')
+            coef = coef * (i - j) // (j + 1)
+        print()
 
 default_args = {
     'owner': 'airflow',
@@ -26,6 +25,6 @@ dag = DAG('pascal', default_args=default_args, schedule_interval='@daily')
 
 python_task = PythonOperator(
     task_id='python_task',
-    python_callable=pascal_triangle(10),
+    python_callable=pascal_treug,
     dag=dag,
 )
