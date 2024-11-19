@@ -3,7 +3,6 @@ from airflow.operators.python_operator import PythonOperator
 from datetime import datetime
 
 
-n = 10
 
 def pascal_triangle(n):
     matrix = []
@@ -27,6 +26,6 @@ dag = DAG('pascal', default_args=default_args, schedule_interval='@daily')
 
 python_task = PythonOperator(
     task_id='python_task',
-    python_callable=pascal_triangle,
+    python_callable=pascal_triangle(10),
     dag=dag,
 )
