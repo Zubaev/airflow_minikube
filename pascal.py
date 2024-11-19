@@ -17,13 +17,16 @@ def pascal_triangle(n):
 
 default_args = {
     'owner': 'airflow',
-    'start_date': datetime(2024, 11, 19),
+    'depends_on_past': False,
+    'start_date': datetime(2023, 7, 19),
+    'email_on_failure': False,
+    'email_on_retry': False,
 }
 
 dag = DAG('pascal', default_args=default_args, schedule_interval='@daily')
 
 python_task = PythonOperator(
     task_id='python_task',
-    python_callable=pascal_triangle,
+    python_callable=my_function,
     dag=dag,
 )
