@@ -2,14 +2,18 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from datetime import datetime
 
-def pascal_treug():
-    n = 10
-    for i in range(n):
-        coef = 1
-        for j in range(0, i + 1):
-            print(coef, end=' ')
-            coef = coef * (i - j) // (j + 1)
-        print()
+
+n = 10
+
+def pascal_triangle(n):
+    matrix = []
+    for x in range(n):
+        rows = []
+        for y in range(x + 1):
+            result = comb(x, y)
+            rows.append(result)
+        matrix.append(rows)
+    return matrix
 
 default_args = {
     'owner': 'airflow',
